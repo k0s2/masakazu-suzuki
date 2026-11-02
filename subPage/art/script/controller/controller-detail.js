@@ -29,6 +29,7 @@ $(document).ready(function () {
   // イラストを表示
   const container = document.querySelector(".container");
   for (let i = -1; i <= 1; i++) {
+
     // 画像ＩＤを設定
     const targetId = imageIndex + i;
 
@@ -47,7 +48,9 @@ $(document).ready(function () {
         ".jpg";
       image.src = fileName;
       exhibit.appendChild(image);
+
     } else {
+
       // 画像なし
       exhibit.classList.add("blank");
 
@@ -56,12 +59,18 @@ $(document).ready(function () {
       } else if (targetId > imageMax) {
         arrowRight = false;
       }
+
     }
+
   }
 
+  // ------------------------------------------------
   // クリックイベント
+  // ------------------------------------------------
+
   const elementsPrev = document.querySelectorAll(".movePrev");
   for (const element of elementsPrev) {
+
     // イベント付加
     element.addEventListener("click", () => {
       // セッションストレージのインデックス変更
@@ -69,19 +78,28 @@ $(document).ready(function () {
       // ページ遷移
       open("detail.html", "_self");
     });
+
   }
+
   const elementsNext = document.querySelectorAll(".moveNext");
   for (const element of elementsNext) {
+
     // イベント付加
     element.addEventListener("click", () => {
+
       // セッションストレージのインデックス変更
       sessionStorage.setItem("index", imageIndex + 1);
+
       // ページ遷移
       open("detail.html", "_self");
     });
+
   }
 
+  // ------------------------------------------------
   // 矢印消去
+  // ------------------------------------------------
+
   if (!arrowLeft) {
     const target = document.getElementById("buttonPrev");
     target.remove();
